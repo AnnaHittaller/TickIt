@@ -6,8 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Gloock&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
 			rel="stylesheet" />
 		<link
 			rel="stylesheet"
@@ -15,14 +17,11 @@
 			integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer" />
+		<link rel="icon" type="image/x-icon" href="./assets/TickIt-Navicon.png" />
 		<link rel="stylesheet" href="./style.css" />
-
-		<!--  here comes the link for the navicon later -->
-
 		<title>TickIt</title>
 	</head>
 	<body>
-
 		<!--  SIDEBAR SECTION START -->
 
 		<section class="sidebar">
@@ -30,15 +29,91 @@
 			<div class="tasklists"></div>
 		</section>
 
-        <!--  SIDEBAR SECTION END -->
+		<!--  SIDEBAR SECTION END -->
 
-        <!--  TASKS SECTION START -->
+		<!--  TASKS SECTION START -->
 		<main>
-            <div class="my-day"></div>
-            <div class="completed"></div>
-        </main>
+			<div class="my-day">
+				<h1>My Day</h1>
+				<!-- Here comes some JS later on to show current date -->
+				<div class="date">
+					<i class="fa-regular fa-calendar"></i>
+					<span id="date">25. February 2023</span>
+				</div>
+				<div class="task-container">
 
-        <!--  TASKS SECTION END -->
+					<div class="task new-task">
+						<i class="fa-solid fa-plus"></i>
+						<span>New Task</span>
+					</div>
 
+					<div class="task to-do">
+						<div class="task-left">
+                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <p>This is a sample task</p>
+                        </div>
+						<i class="fa-solid fa-star star-unmarked"></i>
+					</div>
+
+                    <div class="task to-do">
+						<div class="task-left">
+                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <p>This is a sample task</p>
+                        </div>
+						<i class="fa-solid fa-star star-unmarked"></i>
+					</div>
+
+                    <div class="task to-do">  
+						<div class="task-left">
+                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <p>This is a sample task</p>
+                        </div>
+						<i class="fa-regular fa-star"></i>
+					</div>
+
+                    <div class="task to-do">
+						<div class="task-left">
+                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <p>This is a sample task</p>
+                        </div>
+						<i class="fa-regular fa-star"></i>
+					</div>
+
+                    </div>
+				</div>
+			</div>
+
+			<div class="completed">
+                <h2>Completed</h2>
+                <div class="task-container">
+
+                    <div class="task completed-task">
+						<div class="task-left">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <p>This task is completed</p>
+                        </div>
+						<i class="fa-regular fa-star"></i>
+				    </div>
+
+                    <div class="task completed-task">
+						<div class="task-left">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <p>This task is completed</p>
+                        </div>
+						<i class="fa-regular fa-star"></i>
+				    </div>
+
+                    <div class="task completed-task">
+						<div class="task-left">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <p>This task is completed</p>
+                        </div>
+						<i class="fa-regular fa-star"></i>
+				    </div>
+                </div>
+            </div>
+		</main>
+
+		<!--  TASKS SECTION END -->
 	</body>
 </html>

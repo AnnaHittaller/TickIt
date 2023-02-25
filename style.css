@@ -15,6 +15,7 @@
 	--accentcolor-light: #a3cef1;
 	--background-colored: #d3e4f2;
 	--background-grey: #e7ecef;
+	--light-basic: #ffffff;
 }
 
 /*  We will need this part just for later, the dark-light mode switcher
@@ -47,4 +48,88 @@ main {
 	background: var(--background-grey);
 	width: 88%;
 	min-height: 100vh;
+	padding: 2rem;
+}
+
+.my-day h1,
+.completed h2 {
+	font-size: 2rem;
+	color: var(--accentcolor-dark);
+	margin-bottom: 1rem;
+}
+
+.date {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-bottom: 1rem;
+}
+
+.fa-calendar {
+	color: var(--accentcolor-dark);
+	padding-right: 0.5rem;
+}
+
+#date {
+	font-weight: light;
+}
+
+.task-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 0 3rem 0;
+}
+
+.task {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 3rem;
+	background-color: var(--light-basic);
+	padding: 0rem 1rem;
+	border-radius: 0.5rem;
+    box-shadow: 2px 4px 4px 0 rgba(39, 76, 119, .15);
+}
+
+.circle-task {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.new-task {
+	justify-content: flex-start;
+	background-color: var(--accentcolor-light);
+}
+
+.new-task i,
+.new-task span {
+	color: var(--accentcolor-dark);
+	font-weight: bold;
+	font-size: 1rem;
+	padding-right: 1rem;
+}
+
+.task-left {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5rem;
+}
+.task-left p {
+	font-size: 0.9rem;
+}
+
+.fa-circle,
+.fa-star,
+.fa-circle-check {
+	color: var(--accentcolor-light);
+}
+
+.completed-task p {
+	text-decoration: line-through;
 }
