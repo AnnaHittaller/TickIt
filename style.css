@@ -1,0 +1,50 @@
+/*  General styles */
+
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 16px;
+	--text-color: #212121;
+	--accentcolor-dark: #274c77;
+	--accentcolor-light: #a3cef1;
+	--background-colored: #d3e4f2;
+	--background-grey: #e7ecef;
+}
+
+/*  We will need this part just for later, the dark-light mode switcher
+
+.lightmode {
+	--text-color: #212121;
+	--accentcolor-dark: #274c77;
+	--accentcolor-light: #a3cef1;
+	--background-colored: #d3e4f2;
+	--background-grey: #e7ecef;
+} */
+
+body {
+	font-family: "Open Sans", sans-serif;
+	color: var(--text-color);
+	display: flex;
+}
+
+/* Sidebar styles */
+
+.sidebar {
+	background: var(--background-colored);
+	width: 25%;
+	min-height: 100vh;
+}
+
+/* Task section styles */
+
+main {
+	background: var(--background-grey);
+	width: 88%;
+	min-height: 100vh;
+}
