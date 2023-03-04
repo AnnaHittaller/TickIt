@@ -33,6 +33,25 @@
 
 		<!--  TASKS SECTION START -->
 		<main>
+			<div class="menu-logo">
+				<div class="menu-logo-left">
+					<div class="hamburger">
+					<div class="burger">
+						<div id="burger-bar-1"></div>
+						<div id="burger-bar-2"></div>
+						<div id="burger-bar-3"></div>
+					</div>
+				</div>
+				<input type="checkbox" id="darkmode-toggle">
+				<label for="darkmode-toggle">
+					<i class="fa-regular fa-sun"></i>
+					<i class="fa-regular fa-moon"></i>
+				</label>
+				</div>
+			<div class="logo">
+				<img src="./assets/TickIt-Logo-PNG.png" alt="TickIt logo">
+			</div>
+			</div>
 			<div class="my-day">
 				<h1>My Day</h1>
 				<!-- Here comes some JS later on to show current date -->
@@ -42,41 +61,64 @@
 				</div>
 				<div class="task-container">
 
-					<div class="task new-task">
+					<!-- <div class="task new-task">
 						<i class="fa-solid fa-plus"></i>
 						<span>New Task</span>
+					</div> -->
+
+					<div class="input-field">
+						<input type="text" id="new-task" class="task new-task" placeholder="Add A New Task">
+					<i class="fa-solid fa-plus"></i>
 					</div>
+					
 
 					<div class="task to-do">
 						<div class="task-left">
-                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <i class="fa-regular fa-circle"></i>
                             <p>This is a sample task</p>
                         </div>
-						<i class="fa-solid fa-star star-unmarked"></i>
+						<div class="task-right">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
+						
 					</div>
 
                     <div class="task to-do">
 						<div class="task-left">
-                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <i class="fa-regular fa-circle"></i>
                             <p>This is a sample task</p>
                         </div>
-						<i class="fa-solid fa-star star-unmarked"></i>
+						<div class="task-right">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 					</div>
 
                     <div class="task to-do">  
 						<div class="task-left">
-                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <i class="fa-regular fa-circle"></i>
                             <p>This is a sample task</p>
                         </div>
-						<i class="fa-regular fa-star"></i>
+						<div class="task-right">
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 					</div>
 
                     <div class="task to-do">
 						<div class="task-left">
-                            <i class="fa-regular fa-circle circle-empty"></i>
+                            <i class="fa-regular fa-circle"></i>
                             <p>This is a sample task</p>
                         </div>
-						<i class="fa-regular fa-star"></i>
+						<div class="task-right">
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 					</div>
 
                     </div>
@@ -92,7 +134,11 @@
                             <i class="fa-solid fa-circle-check"></i>
                             <p>This task is completed</p>
                         </div>
-						<i class="fa-regular fa-star"></i>
+						<div class="task-right">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 				    </div>
 
                     <div class="task completed-task">
@@ -100,7 +146,11 @@
                             <i class="fa-solid fa-circle-check"></i>
                             <p>This task is completed</p>
                         </div>
-						<i class="fa-regular fa-star"></i>
+						<div class="task-right">
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 				    </div>
 
                     <div class="task completed-task">
@@ -108,7 +158,11 @@
                             <i class="fa-solid fa-circle-check"></i>
                             <p>This task is completed</p>
                         </div>
-						<i class="fa-regular fa-star"></i>
+						<div class="task-right">
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-solid fa-pencil"></i>
+							<i class="fa-regular fa-trash-can"></i>
+						</div>
 				    </div>
                 </div>
             </div>
