@@ -39,7 +39,7 @@ body {
 
 .sidebar {
 	background: var(--background-colored);
-	width: 25%;
+	/* width: 25%; */
 	min-height: 100vh;
 }
 
@@ -47,7 +47,9 @@ body {
 
 main {
 	background: var(--background-grey);
-	width: 88%;
+	position: fixed;
+	right: 0;
+	width: calc(100% - 350px);
 	min-height: 100vh;
 	padding: 2rem;
 }
@@ -58,12 +60,13 @@ main {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 0;
+
 }
 
 .menu-logo-left {
 	display: flex;
 	align-items: center;
-	/* gap: 1rem; */
+
 }
 
 .burger {
@@ -157,8 +160,15 @@ input[type="checkbox"]:checked + label .fa-moon {
 	color: #ffffff;
 } 
 
-.logo img {
+a.closebtn {
+	display: none;
+}
+
+img.lightmode,
+img.darkmode {
+	display: none;
 	width: 125px;
+	
 }
 
 .my-day h1,
@@ -259,14 +269,14 @@ input[type="checkbox"]:checked + label .fa-moon {
 }
 
 .fa-circle,
-.fa-star,
+.fa-pencil,
 .fa-circle-check,
 .fa-trash-can {
 	color: var(--accentcolor-light);
 	cursor: pointer;
 }
 
-.fa-pencil {
+.fa-star {
 	color: var(--accentcolor-dark)
 }
 
@@ -286,4 +296,12 @@ input[type="checkbox"]:checked + label .fa-moon {
 	main {
 		width: 100%;
 	}
+
+	img.lightmode {
+	display: inline-block;
+}
+
+a.closebtn {
+	display: inline-block;
+}
 }
