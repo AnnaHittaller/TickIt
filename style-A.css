@@ -247,46 +247,17 @@ a.closebtn {
 
 ul.tasks {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: .75rem;
 }
 
 li.task {
 	position: relative;
 	font-size: 1rem;
+	padding-left: 3rem;
 }
 
-li.to-do::before {
-	content: "\f111";
-	display: inline-block;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
-	font-size: 1rem;
-	color: var(--accentcolor-light);
-	padding-right: 0.25rem;
-	cursor: pointer;
-}
-
-li.completed-task::before {
-	content: "\f058";
-	display: inline-block;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-	font-size: 1rem;
-	color: var(--accentcolor-light);
-	padding-right: 0.25rem;
-	cursor: pointer;
-}
-
-li.task::after {
-	content: "\f005";
-	display: inline-block;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
-	font-size: 1rem;
-	color: #274c77;
-	cursor: pointer;
-	position: absolute;
-	right: 5rem;
-}
 
 .to-do {
 	display: flex;
@@ -308,10 +279,10 @@ span.completed-task {
 	text-decoration: line-through;
 }
 
-.completed-task::before {
-	text-decoration-skip-ink: auto;
-	-webkit-text-decoration-skip-ink: auto;
-	-moz-text-decoration-skip-ink: auto;
+
+.circle {
+	position: absolute;
+	left: 1rem;
 }
 
 .pencil {
@@ -322,6 +293,11 @@ span.completed-task {
 .trash {
 	position: absolute;
 	right: 1rem;
+}
+
+.star {
+	position: absolute;
+	right: 5rem;
 }
 
 /*  up to here */
@@ -336,6 +312,7 @@ span.completed-task {
 
 .fa-star {
 	color: #274c77;
+	cursor: pointer;
 }
 
 /*  MEDIA QUERIES ----------------------- */
