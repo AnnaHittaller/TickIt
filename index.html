@@ -18,17 +18,17 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer" />
 		<link rel="icon" type="image/x-icon" href="./assets/TickIt-Navicon.png" />
-		<link rel="stylesheet" href="./style.css" />
-		<link rel="stylesheet" href="./style-kopie.css">
+		<link rel="stylesheet" href="./style-A.css" />
+		<link rel="stylesheet" href="./style-M.css">
 		<title>TickIt</title>
 	</head>
 	<body>
 		<!--  SIDEBAR SECTION START -->
 
-		<section class="sidebar">
-<header>
+		<section class="sidebar" id="sidebar">
+			<header>
 				<div class="logo">
-				<img class="logo-tick-it" src="./assets/TickIt-Logo-PNG.png"/></div>
+				<img class="logo-tick-it" src="./assets/TickIt-Logo-Positive-PNG.png"/></div>
 				
 			</header>
 			<div class="tasklists">
@@ -68,7 +68,7 @@
 
 			<div class="menu-logo">
 				<div class="menu-logo-left">
-					<div class="hamburger">
+					<div class="hamburger" id="hamburger">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="burger-button" src="./assets/Burger-Menu-Tick-It.png"/></a>
 					<!-- <div class="burger">
 						<div id="burger-bar-1"></div>
@@ -83,138 +83,50 @@
 				</label>
 				</div>
 			<div class="logo-main">
-			<img class= "lightmode" src="./assets/TickIt-Logo-PNG.png" alt="TickIt logo">
-			<img class="darkmode" src="./assets/TickIt-Logo-Negativ-PNG.png" alt="TickIt logo">
+			<img id="logo-main" src="./assets/TickIt-Logo-Positive-PNG.png" alt="TickIt logo">
 			</div>
 			</div>
 			<div class="my-day">
 				<h1>My Day</h1>
-				<!-- Here comes some JS later on to show current date -->
 				<div class="date">
 					<i class="fa-regular fa-calendar"></i>
 					<span id="date">25. February 2023</span>
 				</div>
-				<div class="task-container">
+				<div class="task-container" id="task-to-do">
 
 
 					<div class="input-field">
-						<input type="text" id="new-task" class="task new-task" placeholder="Add A New Task">
-					<i class="fa-solid fa-plus"></i>
+						<input type="text" id="new-task" class="task new-task" placeholder="... Add A New Task">
+					<i class="fa-solid fa-plus" id="add-new"></i>
 					</div>
-					
+			<!-- New list for the tasks -->
 
-					<div class="task to-do">
-						<div class="task-left">
-                            <i class="fa-regular fa-circle"></i>
-                            <p>This is a sample task</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-solid fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-						
-					</div>
+					<ul class="tasks" id="new-tasklist">
+						<li class='to-do task'><span class=" to-do">Sample</span></li>
+					</ul>
 
-                    <div class="task to-do">
-						<div class="task-left">
-                            <i class="fa-regular fa-circle"></i>
-                            <p>This is a sample task</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-solid fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-					</div>
-
-                    <div class="task to-do">  
-						<div class="task-left">
-                            <i class="fa-regular fa-circle"></i>
-                            <p>This is a sample task</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-					</div>
-
-                    <div class="task to-do">
-						<div class="task-left">
-                            <i class="fa-regular fa-circle"></i>
-                            <p>This is a sample task</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-					</div>
-
-                    </div>
-				</div>
+                </div>
 			</div>
+		</div>
 
-			<div class="completed">
+			<div class="completed" >
                 <h2>Completed</h2>
-                <div class="task-container">
+                <div class="task-container" id="completed">
 
-                    <div class="task completed-task">
-						<div class="task-left">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>This task is completed</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-solid fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-				    </div>
+			<!-- New list for the completed tasks -->
+					<ul class="tasks" id="completed-tasks-list">
+						<li class='task completed-task'><span class="completed-task">Sample completed</span></li>
+					</ul>
 
-                    <div class="task completed-task">
-						<div class="task-left">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>This task is completed</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-				    </div>
-
-                    <div class="task completed-task">
-						<div class="task-left">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>This task is completed</p>
-                        </div>
-						<div class="task-right">
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-solid fa-pencil"></i>
-							<i class="fa-regular fa-trash-can"></i>
-						</div>
-				    </div>
+                    
                 </div>
             </div>
 		</main>
 
 		<!--  TASKS SECTION END -->
+		
+	<script src="./script-A.js"></script>
+	<script src ="./script-M.js"></script>
 
-		<script>
-	
-function openNav() {
-  document.getElementById("mySidebar").style.width = "350px";
-  document.getElementById("main").style.display = "none";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.getElementById("main").style.display = "";
-}
-</script>
-
-
-	</body>
+</body>
 </html>
