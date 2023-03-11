@@ -8,7 +8,7 @@
 	box-sizing: border-box;
 }
 
-:root {
+body {
 	font-size: 16px;
 	--text-color: #212121;
 	--accentcolor-dark: #274c77;
@@ -16,18 +16,18 @@
 	--background-colored: #d3e4f2;
 	--background-grey: #e7ecef;
 	--light-basic: #ffffff;
+	--box-shadow: rgba(39, 76, 119, 0.15);
 }
 
-/*  We will need this part just for later, the dark-light mode switcher
-
 .darkmode {
-	--text-color: #212121;
-	--accentcolor-dark: #274c77;
+	--text-color: white;
+	--accentcolor-dark: #d3e4f2;
 	--accentcolor-light: #a3cef1;
 	--background-colored: #d3e4f2;
-	--background-grey: #e7ecef;
+	--background-grey: #274c77;
 	--light-basic: #ffffff;
-} */
+	--box-shadow: rgba(33, 33, 33, 0.5);
+}
 
 body {
 	font-family: "Open Sans", sans-serif;
@@ -37,20 +37,17 @@ body {
 
 /* Sidebar styles */
 
-.sidebar {
+/* .sidebar {
 	background: var(--background-colored);
-	/* width: 25%; */
 	min-height: 100vh;
-}
+} */
 
 /* Task section styles */
 
 main {
-	background: var(--background-grey);
 	position: fixed;
 	right: 0;
 	width: calc(100% - 350px);
-	min-height: 100vh;
 	padding: 2rem;
 }
 
@@ -60,17 +57,15 @@ main {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 0;
-
 }
 
 .menu-logo-left {
 	display: flex;
 	align-items: center;
-
 }
 
+/* These were for the burger menu which I created before adding yours, it is also commented out in the html file
 .burger {
-	/* will have to change display mode when we need the hamburger menu */
 	display: none;
 	flex-direction: column;
 	align-items: center;
@@ -90,7 +85,7 @@ main {
 
 #burger-bar-3 {
 	margin-bottom: 0;
-}
+} */
 
 label {
 	width: 65px;
@@ -98,10 +93,10 @@ label {
 	position: relative;
 	display: block;
 	border-radius: 33px;
-	border: 2px solid #A1A1A1; 
+	border: 2px solid #a1a1a1;
 	background-color: var(--background-colored);
 	cursor: pointer;
-	transition: .3s;
+	transition: 0.3s;
 }
 
 label::after {
@@ -113,7 +108,7 @@ label::after {
 	left: 3px;
 	background-color: rgb(245, 177, 50);
 	border-radius: 50%;
-	transition: .3s;
+	transition: 0.3s;
 }
 
 input[type="checkbox"] {
@@ -124,13 +119,13 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked + label {
 	background-color: var(--background-colored);
-	border: 2px solid #A1A1A1; 
+	border: 2px solid #a1a1a1;
 }
 
 input[type="checkbox"]:checked + label::after {
 	left: 58px;
 	transform: translateX(-100%);
-	background-color: var(--accentcolor-dark);
+	background-color: #274c77;
 }
 
 label i {
@@ -143,32 +138,30 @@ label i {
 label .fa-sun {
 	color: #ffffff;
 	left: 7px;
-	transform: .3s;
+	transform: 0.3s;
 }
 
 label .fa-moon {
 	color: #a1a1a1;
 	left: 40px;
-	transform: .3s;
+	transform: 0.3s;
 }
 
 input[type="checkbox"]:checked + label .fa-sun {
 	color: #a1a1a1;
-} 
+}
 
 input[type="checkbox"]:checked + label .fa-moon {
 	color: #ffffff;
-} 
+}
 
 a.closebtn {
 	display: none;
 }
 
-img.lightmode,
-img.darkmode {
+#logo-main {
 	display: none;
 	width: 125px;
-	
 }
 
 .my-day h1,
@@ -213,7 +206,7 @@ img.darkmode {
 	background-color: var(--light-basic);
 	padding: 0rem 1rem;
 	border-radius: 0.5rem;
-    box-shadow: 2px 4px 4px 0 rgba(39, 76, 119, .15);
+	box-shadow: 2px 4px 4px 0 var(--box-shadow);
 }
 
 .input-field {
@@ -221,24 +214,20 @@ img.darkmode {
 	padding: 0;
 }
 
-.circle-task {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-}
-
 #new-task {
 	justify-content: flex-start;
 	background-color: var(--accentcolor-light);
 	outline: none;
 	border: none;
-	padding-left: 2.5rem;
-	cursor: pointer;
+	padding-left: 1rem;
+	cursor: text;
+	color: #274c77;
+	font-weight: bold;
+	font-size: 1rem;
 }
 
-.new-task,
 .new-task::placeholder {
-	color: var(--accentcolor-dark);
+	color: rgba(39, 76, 119, 0.5);
 	font-weight: bold;
 	font-size: 1rem;
 }
@@ -246,27 +235,96 @@ img.darkmode {
 .fa-plus {
 	position: absolute;
 	padding: 0 1rem;
-	color: var(--accentcolor-dark);
+	color: #274c77;
 	font-weight: bold;
+	font-size: 2rem;
+	right: 0rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+/*  from here is the code for thebnew list items */
+
+ul.tasks {
+	width: 100%;
+}
+
+li.task {
+	position: relative;
 	font-size: 1rem;
 }
 
+li.to-do::before {
+	content: "\f111";
+	display: inline-block;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	font-size: 1rem;
+	color: var(--accentcolor-light);
+	padding-right: 0.25rem;
+	cursor: pointer;
+}
 
-.task-left {
+li.completed-task::before {
+	content: "\f058";
+	display: inline-block;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 1rem;
+	color: var(--accentcolor-light);
+	padding-right: 0.25rem;
+	cursor: pointer;
+}
+
+li.task::after {
+	content: "\f005";
+	display: inline-block;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	font-size: 1rem;
+	color: #274c77;
+	cursor: pointer;
+	position: absolute;
+	right: 5rem;
+}
+
+.to-do {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	gap: 0.5rem;
+	color: #212121;
 }
 
-.task-left p {
-	font-size: 0.9rem;
-}
-
-.task-right {
+.completed-task {
 	display: flex;
-	gap: 1rem;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5rem;
+	color: #212121;
 }
+
+span.completed-task {
+	text-decoration: line-through;
+}
+
+.completed-task::before {
+	text-decoration-skip-ink: auto;
+	-webkit-text-decoration-skip-ink: auto;
+	-moz-text-decoration-skip-ink: auto;
+}
+
+.pencil {
+	position: absolute;
+	right: 3rem;
+}
+
+.trash {
+	position: absolute;
+	right: 1rem;
+}
+
+/*  up to here */
 
 .fa-circle,
 .fa-pencil,
@@ -277,31 +335,22 @@ img.darkmode {
 }
 
 .fa-star {
-	color: var(--accentcolor-dark)
+	color: #274c77;
 }
-
-.completed-task p {
-	text-decoration: line-through;
-}
-
 
 /*  MEDIA QUERIES ----------------------- */
 
 @media only screen and (max-width: 768px) {
-
-	.sidebar {
-		display: none;
-	}
-
 	main {
 		width: 100%;
 	}
 
-	img.lightmode {
-	display: inline-block;
-}
+	#logo-main {
+		display: inline-block;
+	}
 
-a.closebtn {
-	display: inline-block;
-}
+	a.closebtn {
+		display: inline-block;
+		z-index: 50;
+	}
 }
