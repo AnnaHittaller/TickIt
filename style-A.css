@@ -32,7 +32,8 @@ body {
 body {
 	font-family: "Open Sans", sans-serif;
 	color: var(--text-color);
-	display: flex;
+	/* display: flex; */
+	min-height: 100vh;
 }
 
 /* Sidebar styles */
@@ -45,10 +46,12 @@ body {
 /* Task section styles */
 
 main {
-	position: fixed;
-	right: 0;
+	/* position: fixed; */
+	float: right;
 	width: calc(100% - 350px);
 	padding: 2rem;
+	min-height: 100vh;
+	/* overflow: auto; */
 }
 
 .menu-logo {
@@ -159,7 +162,14 @@ a.closebtn {
 	display: none;
 }
 
-#logo-main {
+.toggle{
+	position: relative;
+	left: 2.5rem;
+	top: 1rem;
+}
+
+#logo-main,
+#logo-main-2 {
 	display: none;
 	width: 125px;
 }
@@ -239,7 +249,10 @@ a.closebtn {
 	font-weight: bold;
 	font-size: 2rem;
 	right: 0rem;
-	border-radius: 50%;
+	background-color:rgba(39, 76, 119, .2);
+	border-radius: 0px 5px 5px 0px;
+	height: 100%;
+	padding-top: .5rem;
 	cursor: pointer;
 }
 
@@ -288,11 +301,13 @@ span.completed-task {
 .pencil {
 	position: absolute;
 	right: 3rem;
+
 }
 
 .trash {
 	position: absolute;
 	right: 1rem;
+	font-weight: 300;
 }
 
 .star {
@@ -322,12 +337,49 @@ span.completed-task {
 		width: 100%;
 	}
 
-	#logo-main {
+	.sidebar {
+		padding-top: 5rem;
+		left: -350px;
+		z-index: 15;
+		transition: .3s ease;
+	}
+
+	.menu-logo {
+		padding-left: .5rem;
+	}
+
+	.toggle{
+		position: relative;
+		left: 15rem;
+		top: -3.75rem;
+	}
+
+	.slideout {
+		left: 0;
+	}
+
+	.notscroll {
+		overflow: hidden;
+		position: absolute;
+	}
+
+	#logo-main,
+	#logo-main-2 {
 		display: inline-block;
 	}
 
+	.logo-hidden {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+  }
+
 	a.closebtn {
 		display: inline-block;
+		position: sticky;
+		top: 3.25rem;
+		left: 2rem;
 		z-index: 50;
 	}
 }

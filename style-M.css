@@ -5,14 +5,16 @@
 	background: var(--background-colored);
 	width: 350px;
 	position: fixed; 
-	min-height: 100vh;
+	height: 100%;
+	/* overflow-y: scroll; */
 }
 
 /* Task section styles */
 
 main {
 	background: var(--background-grey);
-	min-height: 100vh;
+ 	height: 100%; 
+	/* overflow-y: scroll; */
 }
 .logo-tick-it {
 	width: 151px;
@@ -101,6 +103,7 @@ h3 {
 	overflow-x: hidden; 
 	padding-top: 10px; 
 	transition: 0.5s;
+	color: red;
   }
    
   
