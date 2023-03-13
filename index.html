@@ -26,7 +26,13 @@
 		<!--  SIDEBAR SECTION START -->
 
 		<section class="sidebar" id="sidebar">
+				<input type="checkbox" id="darkmode-toggle">
+				<label for="darkmode-toggle" class="toggle">
+					<i class="fa-regular fa-sun"></i>
+					<i class="fa-regular fa-moon"></i>
+				</label>
 			<header>
+
 				<div class="logo">
 				<img class="logo-tick-it" src="./assets/TickIt-Logo-Positive-PNG.png"/></div>
 				
@@ -62,28 +68,29 @@
 		<!--  SIDEBAR SECTION END -->
 
 		<!--  TASKS SECTION START -->
-		<main>
+		<main id="main">
 
 		
 
 			<div class="menu-logo">
 				<div class="menu-logo-left">
 					<div class="hamburger" id="hamburger">
-						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="burger-button" src="./assets/Burger-Menu-Tick-It.png"/></a>
+						<a href="javascript:void(0)" class="closebtn" id="hamburger-button"><img class="burger-button" src="./assets/Burger-Menu-Tick-It.png"/></a>
 					<!-- <div class="burger">
 						<div id="burger-bar-1"></div>
 						<div id="burger-bar-2"></div>
 						<div id="burger-bar-3"></div>
 					</div> -->
 				</div>
-				<input type="checkbox" id="darkmode-toggle">
+				<!-- <input type="checkbox" id="darkmode-toggle">
 				<label for="darkmode-toggle">
 					<i class="fa-regular fa-sun"></i>
 					<i class="fa-regular fa-moon"></i>
-				</label>
+				</label> -->
 				</div>
 			<div class="logo-main">
 			<img id="logo-main" src="./assets/TickIt-Logo-Positive-PNG.png" alt="TickIt logo">
+			<img id="logo-main-2" class="logo-hidden" src="./assets/TickIt-Logo-Negativ-PNG.png" alt="TickIt logo">
 			</div>
 			</div>
 			<div class="my-day">
@@ -102,7 +109,7 @@
 			<!-- New list for the tasks -->
 
 					<ul class="tasks" id="new-tasklist">
-						<li class='to-do task'><span class=" to-do span">Have a nice day :)</span></li>
+						<!-- <li class='to-do task'><span class=" to-do span">Have a nice day :)</span></li> -->
 					</ul>
 
                 </div>
