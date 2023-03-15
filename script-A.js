@@ -1,41 +1,40 @@
 // darkmode toggle
 
- const darkModeButton = document.getElementById('darkmode-toggle');
- const body = document.querySelector('body');
- const logo = document.getElementById('logo-main');const logo2 = document.getElementById("logo-main-2");
+const darkModeButton = document.getElementById("darkmode-toggle");
+const body = document.querySelector("body");
+const logo = document.getElementById("logo-main");
+const logo2 = document.getElementById("logo-main-2");
 
- darkModeButton.addEventListener("click", () => {
-		body.classList.toggle("darkmode");
-		logo.classList.toggle("logo-hidden");
-		logo2.classList.toggle("logo-hidden");
- });
+darkModeButton.addEventListener("click", () => {
+	body.classList.toggle("darkmode");
+	logo.classList.toggle("logo-hidden");
+	logo2.classList.toggle("logo-hidden");
+});
 
 // sidebar slideout
 
-const hamburger = document.getElementById('hamburger-button');
-const sidebar = document.getElementById('sidebar')
-const main = document.getElementById('main')
-hamburger.addEventListener('click', () => {
-    sidebar.classList.toggle('slideout')
-    main.classList.toggle('notscroll')
+const hamburger = document.getElementById("hamburger-button");
+const sidebar = document.getElementById("sidebar");
+const main = document.getElementById("main");
+hamburger.addEventListener("click", () => {
+	sidebar.classList.toggle("slideout");
+	main.classList.toggle("notscroll");
 });
-
 
 // today's date
 
-  
-  const today = new Date();
-  
-  const options = { 
-      day: 'numeric', 
-      month: 'long', 
-      year: 'numeric'
-    };
-    
-    const formattedDate = today.toLocaleDateString('en-GB', options);
+const today = new Date();
 
-    const dateSpan = document.getElementById('date');
-    dateSpan.innerHTML = formattedDate;
+const options = {
+	day: "numeric",
+	month: "long",
+	year: "numeric",
+};
+
+const formattedDate = today.toLocaleDateString("en-GB", options);
+
+const dateSpan = document.getElementById("date");
+dateSpan.innerHTML = formattedDate;
 
 // Adding new tasks
 
@@ -43,19 +42,19 @@ const addNewButton = document.getElementById("add-new");
 const inputField = document.getElementById("new-task");
 let taskList = document.getElementById("new-tasklist");
 
-
 // retrieving tasks from the local storage
 
 let toDoList = [];
 getItemsFromStorage();
 
 function addNewTask() {
+	//creating a new li item and a span within, with the necessary classes
 	const newListItem = document.createElement("li");
 	newListItem.className = "to-do task";
 	const newListContent = document.createElement("span");
 	newListContent.className = "to-do span";
 	let newToDo = document.getElementById("new-task").value;
-
+	//defining the properties which the items in the local storage will have
 	if (newToDo === "") {
 		inputField.value = "";
 	} else {
@@ -65,19 +64,20 @@ function addNewTask() {
 			completed: false,
 			favorite: false,
 		};
-
+		//inserting the span in the li item, and adding it to the first place of the new task list
 		newListContent.innerHTML = newToDo;
 		newListItem.appendChild(newListContent);
 		let firstChildNew = taskList.firstChild;
 		taskList.insertBefore(newListItem, firstChildNew);
-
+		//pushing the items in the array and then to local storage
 		toDoList.push(newTask);
+		newListContent.id = toDoList.length - 1;
 		localStorage.setItem("to-do-list", JSON.stringify(toDoList));
 
 		inputField.value = "";
 	}
 
-	// adding pencil and trashcan icons to the list items
+	// adding pencil, star, circle and trashcan icons to the list items when they are getting created
 
 	const listItems = document.getElementsByClassName("task");
 
@@ -99,6 +99,9 @@ function addNewTask() {
 		listItems[i].appendChild(circle);
 	}
 
+	// here the below few functions are just event listeners added to every newly generated item, the functions itself are 
+	// written below
+
 	//favorites marking
 
 	let starIcon = document.getElementsByClassName("star");
@@ -111,7 +114,6 @@ function addNewTask() {
 	// completing tasks
 
 	let circleIcon = document.getElementsByClassName("fa-regular fa-circle");
-	//console.log(circleIcon);
 
 	for (let i = 0; i < circleIcon.length; i++) {
 		circleIcon[i].addEventListener("click", taskComplete);
@@ -123,10 +125,17 @@ function addNewTask() {
 	for (let i = 0; i < trashIcon.length; i++) {
 		trashIcon[i].addEventListener("click", removeItem);
 	}
+
+	//editing items
+	const pencilIcon = document.getElementsByClassName("pencil");
+	for (let i = 0; i < pencilIcon.length; i++) {
+		pencilIcon[i].addEventListener("click", editItem);
+	}
 }
 
 // end of the addnew function
 
+//adding functionality to the add new button and making it work with pressing enter too
 addNewButton.addEventListener("click", addNewTask);
 
 inputField.addEventListener("keypress", function (event) {
@@ -147,11 +156,12 @@ function markFavorite() {
 	const parent = this.closest("li");
 	const parentList = this.closest("ul");
 	let firstParentChild = parentList.firstChild;
-	//const currentPosition = Array.from(parentList).indexOf(parent);
 	const todosFromStorage = localStorage.getItem("to-do-list");
 	const todoArr = JSON.parse(todosFromStorage);
 	var thisItem = this.parentNode.firstChild;
 
+	// identifying the items in local storage, updating their favorite property and making them jump to the first place
+	//of their list when toggled
 	for (let i = 0; i < todoArr.length; i++) {
 		if (
 			todoArr[i].task === thisItem.innerHTML &&
@@ -170,10 +180,9 @@ function markFavorite() {
 	}
 	toDoList = todoArr;
 	storageUpdate();
-
 }
 
-//completing tasks 
+//completing tasks
 
 let completedList = document.getElementById("completed-tasks-list");
 let circleIcon = document.getElementsByClassName("fa-regular fa-circle");
@@ -182,6 +191,8 @@ for (let i = 0; i < circleIcon.length; i++) {
 	circleIcon[i].addEventListener("click", taskComplete);
 }
 
+//toggling classes for completion (checked circle, strikethrough text), moving items to the other list, 
+// and updating their proprties in local storage
 function taskComplete() {
 	const todosFromStorage = localStorage.getItem("to-do-list");
 	const todoArr = JSON.parse(todosFromStorage);
@@ -198,7 +209,6 @@ function taskComplete() {
 				this.classList.remove("fa-regular");
 				this.classList.add("fa-solid");
 				parent.className = "task completed-task";
-				//let firstChild = completedList.firstChild;
 				listSpan.className = "completed-task span";
 				todoArr[i].completed = true;
 				taskList.removeChild(parent);
@@ -209,7 +219,6 @@ function taskComplete() {
 				this.classList.remove("fa-solid");
 				this.classList.add("fa-regular");
 				parent.className = "to-do task";
-				//let firstChild = completedList.firstChild;
 				listSpan.className = "to-do span";
 				todoArr[i].completed = false;
 				completedList.removeChild(parent);
@@ -218,7 +227,6 @@ function taskComplete() {
 		}
 		toDoList = todoArr;
 	}
-
 	storageUpdate();
 }
 
@@ -230,6 +238,7 @@ for (let i = 0; i < trashIcon.length; i++) {
 	trashIcon[i].addEventListener("click", removeItem);
 }
 
+//removing items from the lists, finding their references in local storage and deleting them too by splicing the parsed array and stringify it again
 function removeItem() {
 	const parent = this.parentNode;
 	const parentList = this.parentNode.parentNode;
@@ -250,8 +259,8 @@ function removeItem() {
 	storageUpdate();
 }
 
-
-
+//rendering every items which are in the local storage according to their saved properties
+//so they get the classes and are placed accordingly - completed stays completed, marked stays marked
 function getItemsFromStorage() {
 	const todosFromStorage = localStorage.getItem("to-do-list");
 	const todoArr = JSON.parse(todosFromStorage);
@@ -261,7 +270,7 @@ function getItemsFromStorage() {
 			const newListContent = document.createElement("span");
 			newListContent.innerHTML = object.task;
 			newListItem.appendChild(newListContent);
-
+			//the icons have to be added again, as they are not stored in local storage
 			const pencil = document.createElement("i");
 			pencil.className = "fa-solid fa-pencil pencil";
 			newListItem.appendChild(pencil);
@@ -297,11 +306,67 @@ function getItemsFromStorage() {
 			newListItem.appendChild(circle);
 
 			toDoList.push(object);
+			newListContent.id = toDoList.length - 1;
 			storageUpdate();
 		});
 	}
 }
 
+//updating the local storage based on the modified parsed array of items
 function storageUpdate() {
 	localStorage.setItem("to-do-list", JSON.stringify(toDoList));
+}
+
+// editing tasks
+
+const pencilIcon = document.getElementsByClassName("pencil");
+for (let i = 0; i < pencilIcon.length; i++) {
+	pencilIcon[i].addEventListener("click", editItem);
+}
+
+function editItem() {
+	//when clicked, the inner span gets replaced by an input field, and some appearance changes to signify the edit mode
+	const spanToEdit = this.parentNode.children[0];
+	const parentLi = this.parentNode;
+	let id = spanToEdit.id;
+	const editInput = document.createElement("input");
+
+	const todosFromStorage = localStorage.getItem("to-do-list");
+	const todoArr = JSON.parse(todosFromStorage);
+
+	editInput.setAttribute("type", "text");
+	editInput.className = "edit";
+
+	editInput.value = spanToEdit.textContent;
+	spanToEdit.textContent = "";
+	spanToEdit.appendChild(editInput);
+	editInput.focus();
+	parentLi.style.backgroundColor = "#FFF0D3";
+
+	//when clicked outside of the field, the content gets taken by the span, which will be saved as the new task property of the local storage item
+	//based on the id the span got when created, which is the same as their index in the todolist array
+	editInput.onblur = () => {
+		//if (editInput.value !== '') {
+		parentLi.style.backgroundColor = "#FFF";
+		todoArr[id].task = editInput.value;
+		spanToEdit.textContent = editInput.value;
+		editInput.style.display = "none";
+		toDoList = todoArr;
+		storageUpdate();
+
+		// } else {
+		//   alert('You have to write something')
+		//}
+	};
+	//it works with pressing enter after finished editing too
+	editInput.onkeydown = (event) => {
+		if (event.key === "Enter" && editInput.value) {
+			parentLi.style.backgroundColor = "#FFF";
+			todoArr[id].task = editInput.value;
+			spanToEdit.textContent = editInput.value;
+			editInput.style.display = "none";
+			toDoList = todoArr;
+			storageUpdate();
+		}
+	};
 }

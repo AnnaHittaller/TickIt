@@ -3,37 +3,37 @@
 *,
 ::before,
 ::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	font-size: 16px;
-	--text-color: #212121;
-	--accentcolor-dark: #274c77;
-	--accentcolor-light: #a3cef1;
-	--background-colored: #d3e4f2;
-	--background-grey: #e7ecef;
-	--light-basic: #ffffff;
-	--box-shadow: rgba(39, 76, 119, 0.15);
+  font-size: 16px;
+  --text-color: #212121;
+  --accentcolor-dark: #274c77;
+  --accentcolor-light: #a3cef1;
+  --background-colored: #d3e4f2;
+  --background-grey: #e7ecef;
+  --light-basic: #ffffff;
+  --box-shadow: rgba(39, 76, 119, 0.15);
 }
 
 .darkmode {
-	--text-color: white;
-	--accentcolor-dark: #d3e4f2;
-	--accentcolor-light: #a3cef1;
-	--background-colored: #d3e4f2;
-	--background-grey: #274c77;
-	--light-basic: #ffffff;
-	--box-shadow: rgba(33, 33, 33, 0.5);
+  --text-color: white;
+  --accentcolor-dark: #d3e4f2;
+  --accentcolor-light: #a3cef1;
+  --background-colored: #d3e4f2;
+  --background-grey: #274c77;
+  --light-basic: #ffffff;
+  --box-shadow: rgba(33, 33, 33, 0.5);
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
-	color: var(--text-color);
-	/* display: flex; */
-	min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  color: var(--text-color);
+  /* display: flex; */
+  min-height: 100vh;
 }
 
 /* Sidebar styles */
@@ -46,25 +46,25 @@ body {
 /* Task section styles */
 
 main {
-	/* position: fixed; */
-	float: right;
-	width: calc(100% - 350px);
-	padding: 2rem;
-	min-height: 100vh;
-	/* overflow: auto; */
+  /* position: fixed; */
+  float: right;
+  width: calc(100% - 350px);
+  padding: 2rem;
+  min-height: 100vh;
+  /* overflow: auto; */
 }
 
 .menu-logo {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 .menu-logo-left {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* These were for the burger menu which I created before adding yours, it is also commented out in the html file
@@ -91,228 +91,267 @@ main {
 } */
 
 label {
-	width: 65px;
-	height: 33px;
-	position: relative;
-	display: block;
-	border-radius: 33px;
-	border: 2px solid #a1a1a1;
-	background-color: var(--background-colored);
-	cursor: pointer;
-	transition: 0.3s;
+  width: 65px;
+  height: 33px;
+  position: relative;
+  display: block;
+  border-radius: 33px;
+  border: 2px solid #a1a1a1;
+  background-color: var(--background-colored);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 label::after {
-	content: "";
-	width: 24px;
-	height: 24px;
-	position: absolute;
-	top: 3px;
-	left: 3px;
-	background-color: rgb(245, 177, 50);
-	border-radius: 50%;
-	transition: 0.3s;
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background-color: rgb(245, 177, 50);
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
 input[type="checkbox"] {
-	width: 0px;
-	height: 0px;
-	visibility: hidden;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
 }
 
 input[type="checkbox"]:checked + label {
-	background-color: var(--background-colored);
-	border: 2px solid #a1a1a1;
+  background-color: var(--background-colored);
+  border: 2px solid #a1a1a1;
 }
 
 input[type="checkbox"]:checked + label::after {
-	left: 58px;
-	transform: translateX(-100%);
-	background-color: #274c77;
+  left: 58px;
+  transform: translateX(-100%);
+  background-color: #274c77;
 }
 
 label i {
-	position: absolute;
-	z-index: 10;
-	font-size: 1rem;
-	top: 7px;
+  position: absolute;
+  z-index: 10;
+  font-size: 1rem;
+  top: 7px;
 }
 
 label .fa-sun {
-	color: #ffffff;
-	left: 7px;
-	transform: 0.3s;
+  color: #ffffff;
+  left: 7px;
+  transform: 0.3s;
 }
 
 label .fa-moon {
-	color: #a1a1a1;
-	left: 40px;
-	transform: 0.3s;
+  color: #a1a1a1;
+  left: 40px;
+  transform: 0.3s;
 }
 
 input[type="checkbox"]:checked + label .fa-sun {
-	color: #a1a1a1;
+  color: #a1a1a1;
 }
 
 input[type="checkbox"]:checked + label .fa-moon {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 a.closebtn {
-	display: none;
+  display: none;
 }
 
-.toggle{
-	position: relative;
-	left: 2.5rem;
-	top: 1rem;
+.toggle {
+  position: relative;
+  left: 2.5rem;
+  top: 1rem;
 }
 
 #logo-main,
 #logo-main-2 {
-	display: none;
-	width: 125px;
+  display: none;
+  width: 125px;
 }
 
 .my-day h1,
 .completed h2 {
-	font-size: 2rem;
-	color: var(--accentcolor-dark);
-	margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--accentcolor-dark);
+  margin-bottom: 1rem;
 }
 
 .date {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	padding-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 
 .fa-calendar {
-	color: var(--accentcolor-dark);
-	padding-right: 0.5rem;
+  color: var(--accentcolor-dark);
+  padding-right: 0.5rem;
 }
 
 #date {
-	font-weight: light;
+  font-weight: light;
 }
 
 .task-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	gap: 1rem;
-	padding: 1rem 0 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 3rem 0;
 }
 
 .task,
 .input-field {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 3rem;
-	background-color: var(--light-basic);
-	padding: 0rem 1rem;
-	border-radius: 0.5rem;
-	box-shadow: 2px 4px 4px 0 var(--box-shadow);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  background-color: var(--light-basic);
+  padding: 0rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 4px 0 var(--box-shadow);
 }
 
 .input-field {
-	position: relative;
-	padding: 0;
+  position: relative;
+  padding: 0;
 }
 
 #new-task {
-	justify-content: flex-start;
-	background-color: var(--accentcolor-light);
-	outline: none;
-	border: none;
-	padding-left: 1rem;
-	cursor: text;
-	color: #274c77;
-	font-weight: bold;
-	font-size: 1rem;
+  justify-content: flex-start;
+  background-color: var(--accentcolor-light);
+  outline: none;
+  border: none;
+  padding-left: 1rem;
+  cursor: text;
+  color: #274c77;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .new-task::placeholder {
-	color: rgba(39, 76, 119, 0.5);
-	font-weight: bold;
-	font-size: 1rem;
+  color: rgba(39, 76, 119, 0.5);
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.fa-plus {
-	position: absolute;
-	padding: 0 1rem;
-	color: #274c77;
-	font-weight: bold;
-	font-size: 2rem;
-	right: 0rem;
-	background-color:rgba(39, 76, 119, .2);
-	border-radius: 0px 5px 5px 0px;
-	height: 100%;
-	padding-top: .5rem;
-	cursor: pointer;
+#add-new {
+  position: absolute;
+  padding: 0 1rem;
+  color: #274c77;
+  font-weight: bold;
+  font-size: 2rem;
+  right: 0rem;
+  background-color: rgba(39, 76, 119, 0.2);
+  border-radius: 0px 5px 5px 0px;
+  height: 100%;
+  padding-top: 0.5rem;
+  cursor: pointer;
 }
 
 /*  from here is the code for thebnew list items */
 
 ul.tasks {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: .75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 li.task {
-	position: relative;
-	font-size: 1rem;
-	padding-left: 3rem;
+  position: relative;
+  font-size: 1rem;
+  padding-left: 3rem;
+  /* width: 100%; */
 }
 
-
 .to-do {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 0.5rem;
-	color: #212121;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: #212121;
+}
+
+.to-do .span {
+  width: calc(100% - 6rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  display: block;
+}
+
+.edit {
+  width: calc(100% - 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  display: block;
 }
 
 .completed-task {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 0.5rem;
-	color: #212121;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: #212121;
 }
 
 span.completed-task {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
-
 .circle {
-	position: absolute;
-	left: 1rem;
+  position: absolute;
+  left: 1rem;
 }
 
 .pencil {
-	position: absolute;
-	right: 3rem;
+  position: absolute;
+  right: 3rem;
+}
 
+.check {
+  position: absolute;
+  right: 3rem;
+  font-weight: 900;
+  font-size: 1.2rem;
+  /* color: #274c77; */
+  color: rgb(245, 177, 50);
+}
+
+.edit {
+  border: none;
+  color: #274c77;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #fff0d3;
+  outline: none;
+  /* min-width: 200px; */
 }
 
 .trash {
-	position: absolute;
-	right: 1rem;
-	font-weight: 300;
+  position: absolute;
+  right: 1rem;
+  font-weight: 300;
 }
 
 .star {
-	position: absolute;
-	right: 5rem;
+  position: absolute;
+  right: 5rem;
 }
 
 /*  up to here */
@@ -321,65 +360,68 @@ span.completed-task {
 .fa-pencil,
 .fa-circle-check,
 .fa-trash-can {
-	color: var(--accentcolor-light);
-	cursor: pointer;
+  color: var(--accentcolor-light);
+  cursor: pointer;
 }
 
 .fa-star {
-	color: #274c77;
-	cursor: pointer;
+  color: #274c77;
+  cursor: pointer;
 }
 
 /*  MEDIA QUERIES ----------------------- */
 
 @media only screen and (max-width: 768px) {
-	main {
-		width: 100%;
-	}
+  main {
+    width: 100%;
+  }
 
-	.sidebar {
-		padding-top: 5rem;
-		left: -350px;
-		z-index: 15;
-		transition: .3s ease;
-	}
+  .sidebar {
+    padding-top: 5rem;
+    left: -350px;
+    z-index: 15;
+    transition: 0.3s ease;
+  }
 
-	.menu-logo {
-		padding-left: .5rem;
-	}
+  .menu-logo {
+    padding-left: 0.5rem;
+  }
 
-	.toggle{
-		position: relative;
-		left: 15rem;
-		top: -3.75rem;
-	}
+  .toggle {
+    position: relative;
+    left: 15rem;
+    top: -3.75rem;
+  }
 
-	.slideout {
-		left: 0;
-	}
+  .slideout {
+    left: 0;
+  }
 
-	.notscroll {
-		overflow: hidden;
-		position: absolute;
-	}
+  .notscroll {
+    overflow: hidden;
+    position: absolute;
+  }
 
-	#logo-main,
-	#logo-main-2 {
-		display: inline-block;
-	}
+  #logo-main,
+  #logo-main-2 {
+    display: inline-block;
+  }
 
-	.logo-hidden {
+  .logo-hidden {
     width: 0px;
     height: 0px;
     opacity: 0;
     position: absolute;
   }
 
-	a.closebtn {
-		display: inline-block;
-		position: sticky;
-		top: 3.25rem;
-		left: 2rem;
-		z-index: 50;
-	}
+  a.closebtn {
+    display: inline-block;
+    position: sticky;
+    top: 3.25rem;
+    left: 2rem;
+    z-index: 50;
+    background-color: var(--background-colored);
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+  }
 }
