@@ -324,9 +324,9 @@ span.completed-task {
   right: 3rem;
 }
 
-.check {
-  position: absolute;
-  right: 3rem;
+.fa-check {
+  /* position: absolute;
+  right: 3rem; */
   font-weight: 900;
   font-size: 1.2rem;
   /* color: #274c77; */

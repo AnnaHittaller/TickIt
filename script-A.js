@@ -64,9 +64,26 @@ function addNewTask() {
 			completed: false,
 			favorite: false,
 		};
+
+		// adding pencil, star, circle and trashcan icons to the list items when they are getting created
+		const pencil = document.createElement("i");
+		pencil.className = "fa-solid fa-pencil pencil";
+		const trash = document.createElement("i");
+		trash.className = "fa-solid fa-trash-can trash";
+		const star = document.createElement("i");
+		star.className = "fa fa-regular fa-star star";
+		const circle = document.createElement("i");
+		circle.className = "fa-regular fa-circle circle";
+
 		//inserting the span in the li item, and adding it to the first place of the new task list
 		newListContent.innerHTML = newToDo;
 		newListItem.appendChild(newListContent);
+
+		newListItem.appendChild(pencil);
+		newListItem.appendChild(star);
+		newListItem.appendChild(trash);
+		newListItem.appendChild(circle);
+
 		let firstChildNew = taskList.firstChild;
 		taskList.insertBefore(newListItem, firstChildNew);
 		//pushing the items in the array and then to local storage
@@ -77,29 +94,7 @@ function addNewTask() {
 		inputField.value = "";
 	}
 
-	// adding pencil, star, circle and trashcan icons to the list items when they are getting created
-
-	const listItems = document.getElementsByClassName("task");
-
-	for (let i = 0; i < listItems.length; i++) {
-		const pencil = document.createElement("i");
-		pencil.className = "fa-solid fa-pencil pencil";
-		listItems[i].appendChild(pencil);
-
-		const trash = document.createElement("i");
-		trash.className = "fa-solid fa-trash-can trash";
-		listItems[i].appendChild(trash);
-
-		const star = document.createElement("i");
-		star.className = "fa fa-regular fa-star star";
-		listItems[i].appendChild(star);
-
-		const circle = document.createElement("i");
-		circle.className = "fa-regular fa-circle circle";
-		listItems[i].appendChild(circle);
-	}
-
-	// here the below few functions are just event listeners added to every newly generated item, the functions itself are 
+	// here these few functions are just event listeners added to every newly generated item, the functions itself are
 	// written below
 
 	//favorites marking
@@ -113,7 +108,7 @@ function addNewTask() {
 
 	// completing tasks
 
-	let circleIcon = document.getElementsByClassName("fa-regular fa-circle");
+	let circleIcon = document.getElementsByClassName("circle");
 
 	for (let i = 0; i < circleIcon.length; i++) {
 		circleIcon[i].addEventListener("click", taskComplete);
@@ -185,13 +180,13 @@ function markFavorite() {
 //completing tasks
 
 let completedList = document.getElementById("completed-tasks-list");
-let circleIcon = document.getElementsByClassName("fa-regular fa-circle");
+let circleIcon = document.getElementsByClassName("circle");
 
 for (let i = 0; i < circleIcon.length; i++) {
 	circleIcon[i].addEventListener("click", taskComplete);
 }
 
-//toggling classes for completion (checked circle, strikethrough text), moving items to the other list, 
+//toggling classes for completion (checked circle, strikethrough text), moving items to the other list,
 // and updating their proprties in local storage
 function taskComplete() {
 	const todosFromStorage = localStorage.getItem("to-do-list");
@@ -202,7 +197,6 @@ function taskComplete() {
 
 	for (let i = 0; i < todoArr.length; i++) {
 		if (todoArr[i].task === thisItem.innerHTML) {
-			//todoArr[i].completed = true;
 			if (todoArr[i].completed === false) {
 				this.classList.remove("fa-circle");
 				this.classList.add("fa-circle-check");
@@ -313,6 +307,7 @@ function getItemsFromStorage() {
 }
 
 //updating the local storage based on the modified parsed array of items
+
 function storageUpdate() {
 	localStorage.setItem("to-do-list", JSON.stringify(toDoList));
 }
@@ -325,7 +320,7 @@ for (let i = 0; i < pencilIcon.length; i++) {
 }
 
 function editItem() {
-	//when clicked, the inner span gets replaced by an input field, and some appearance changes to signify the edit mode
+	//when clicked, the inner span gets replaced by an input field, and some appearances change to signify the edit mode
 	const spanToEdit = this.parentNode.children[0];
 	const parentLi = this.parentNode;
 	let id = spanToEdit.id;
@@ -342,21 +337,27 @@ function editItem() {
 	spanToEdit.appendChild(editInput);
 	editInput.focus();
 	parentLi.style.backgroundColor = "#FFF0D3";
+	this.style.color = "rgb(245, 177, 50)";
 
 	//when clicked outside of the field, the content gets taken by the span, which will be saved as the new task property of the local storage item
 	//based on the id the span got when created, which is the same as their index in the todolist array
 	editInput.onblur = () => {
-		//if (editInput.value !== '') {
-		parentLi.style.backgroundColor = "#FFF";
-		todoArr[id].task = editInput.value;
-		spanToEdit.textContent = editInput.value;
-		editInput.style.display = "none";
-		toDoList = todoArr;
-		storageUpdate();
-
-		// } else {
-		//   alert('You have to write something')
-		//}
+		this.style.color = "var(--accentcolor-light)";
+		//if the span is empty when it is clicked outside, the empty item is not saved to local storage but instead gets deleted, with enter this can't be done, just with clicking outside
+		if (editInput.value === "") {
+			const parentList = parentLi.parentNode;
+			parentList.removeChild(parentLi);
+			todoArr.splice(id, 1);
+			toDoList = todoArr;
+			storageUpdate();
+		} else {
+			parentLi.style.backgroundColor = "#FFF";
+			todoArr[id].task = editInput.value;
+			spanToEdit.textContent = editInput.value;
+			editInput.style.display = "none";
+			toDoList = todoArr;
+			storageUpdate();
+		}
 	};
 	//it works with pressing enter after finished editing too
 	editInput.onkeydown = (event) => {
