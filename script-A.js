@@ -5,11 +5,31 @@ const body = document.querySelector("body");
 const logo = document.getElementById("logo-main");
 const logo2 = document.getElementById("logo-main-2");
 
-darkModeButton.addEventListener("click", () => {
-	body.classList.toggle("darkmode");
-	logo.classList.toggle("logo-hidden");
-	logo2.classList.toggle("logo-hidden");
+darkModeButton.addEventListener("click", () => { 
+	if(darkModeButton.checked === true) {
+		localStorage.setItem("darkmode-toggle", "true")
+	} else {
+		localStorage.setItem("darkmode-toggle", "false");
+	}
+	renderDarkmode()
 });
+
+//saving and retrieving the darkmode settings and the checked state of the toggle button from local storage when page is refreshed
+function renderDarkmode() {
+	let toggleValue = localStorage.getItem("darkmode-toggle");
+	if(toggleValue === "true") {
+		darkModeButton.checked = true;
+		body.classList.add("darkmode");
+		logo.classList.add("logo-hidden");
+		logo2.classList.remove("logo-hidden");
+	} else if (toggleValue === "false") {
+		body.classList.remove("darkmode");
+		logo.classList.remove("logo-hidden");
+		logo2.classList.add("logo-hidden");
+	}
+}
+
+window.addEventListener('load', renderDarkmode)
 
 // sidebar slideout
 
@@ -20,6 +40,19 @@ hamburger.addEventListener("click", () => {
 	sidebar.classList.toggle("slideout");
 	main.classList.toggle("notscroll");
 });
+
+
+//slidebar closes when we click outside of it, we don't have to always use the hamburger icon
+window.addEventListener('click', (e) => {
+ 	//console.log(e.target.id)
+	if(e.target.id !== "hamburger-img") {
+		if(sidebar.className.includes('slideout') && !sidebar.contains(e.target)) {
+			sidebar.classList.remove("slideout");
+			main.classList.remove('notscroll')
+		}
+	}
+ })
+
 
 // today's date
 
