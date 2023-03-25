@@ -128,6 +128,7 @@ function addNewTask() {
 
 		let todaysTasksMax = document.getElementById("new-tasklist").childElementCount;
 		document.querySelector(".my-day-marked").innerHTML = todaysTasksMax;
+		updateCounters()
 	}
 
 	// here these few functions are just event listeners added to every newly generated item, the functions itself are
