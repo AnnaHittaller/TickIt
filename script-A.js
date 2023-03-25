@@ -125,6 +125,9 @@ function addNewTask() {
 		localStorage.setItem("to-do-list", JSON.stringify(toDoList));
 
 		inputField.value = "";
+
+		let todaysTasksMax = document.getElementById("new-tasklist").childElementCount;
+		document.querySelector(".my-day-marked").innerHTML = todaysTasksMax;
 	}
 
 	// here these few functions are just event listeners added to every newly generated item, the functions itself are
