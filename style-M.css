@@ -21,38 +21,65 @@ main {
 }
 .logo {
 	padding-left: 40px;
-	padding-top: 40px;
+	padding-top: 0px;
 }
 .tasklists {
 	padding-left: 40px;
-	padding-top: 20px;
+	padding-top: 10px;
 }
-input.search {
-	width: 251px;
+#searchbar-desktop:focus {
+	border: 2px solid #274C77;
+	outline: none
+  }
+  #searchbar-desktop::placeholder {
+	font-style: italic;
+	font-weight: 300;
+  }
+
+  /* input {
+	font-weight: 400;
+  } */
+
+#searchbar-desktop {
+	width: 270px;
 	background-color: white;
 	height: 43px;
 	border-color: transparent;
 	border-radius: 6px;
 	padding-left: 16px;
 	font-family: 'Open Sans', sans-serif;
-	font-style: italic;
+	font-weight: 600;
+	color: #274C77;
 	margin: 16px 0;
 }
+
 
 .tasks {
 	display: flex;
 	flex-direction: row;
 	padding-top: 16px;
 	justify-content: space-between;
-	width: 250px;
+	width: 270px;
 }
 h3 {
 	font-family: 'Open Sans', sans-serif;
 	color: black;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 16px;
 }
 .number {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 100;
+	color: black;
+}
+.number2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 100;
+	color: black;
+}
+.number3 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 100;
@@ -136,18 +163,22 @@ h3 {
   }
 
   .profile-pic {
-	width: 70px;
-	margin-left: 30px;
-	margin-top: 20px;
+	width: 80px;
+	margin-left: 0px;
+	/* margin-top: 20px; */
   }
   .member {
 	display: flex;
 	flex-direction: row;
 	justify-content: left;
+	align-items: center;
 	gap: 20px;
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 30px;
   }
   .member-data {
-	padding-top: 30px;
+	padding-top: 0px;
   }
   
   #main {
@@ -169,7 +200,7 @@ h3 {
 .search-input {
 	width: 300px;
 }
-.tasks-mobile {
+/* .tasks-mobile {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -179,7 +210,7 @@ h3 {
 	transition: none;
 	justify-content: space-between;
 	width: 350px;
-}
+} */
 
 
 

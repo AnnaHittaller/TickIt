@@ -166,6 +166,7 @@ a.closebtn {
   position: relative;
   left: 2.5rem;
   top: 1rem;
+  margin-bottom: 30px;
 }
 
 #logo-main,
@@ -377,7 +378,7 @@ span.completed-task {
   }
 
   .sidebar {
-    padding-top: 5rem;
+    padding-top: 1rem;
     left: -350px;
     z-index: 15;
     transition: 0.3s ease;
@@ -390,7 +391,7 @@ span.completed-task {
   .toggle {
     position: relative;
     left: 15rem;
-    top: -3.75rem;
+    top: 0.25rem;
   }
 
   .slideout {
