@@ -25,15 +25,28 @@ main {
 }
 .tasklists {
 	padding-left: 40px;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 #searchbar-desktop:focus {
-	border: 2px solid #274C77;
+	border: 0px solid #274C77;
 	outline: none
   }
   #searchbar-desktop::placeholder {
 	font-style: italic;
 	font-weight: 300;
+  }
+  #input-search {
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	border-radius: 6px;
+	height: 43px;
+	width: 270px;
+	border: 1px solid black;
+  }
+  .fa-magnifying-glass {
+	padding-top: 13px;
+	padding-left: 10px;
   }
 
   /* input {
@@ -41,16 +54,17 @@ main {
   } */
 
 #searchbar-desktop {
-	width: 270px;
-	background-color: white;
-	height: 43px;
+	/* width: 270px; */
+	/* background-color: white; */
+	/* height: 43px; */
 	border-color: transparent;
-	border-radius: 6px;
-	padding-left: 16px;
+	/* border-radius: 6px; */
+	border: none;
+	padding-left: 5px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
 	color: #274C77;
-	margin: 16px 0;
+	/* margin: 16px 0; */
 }
 
 
@@ -64,26 +78,62 @@ main {
 h3 {
 	font-family: 'Open Sans', sans-serif;
 	color: black;
-	font-weight: 400;
+	font-weight: 200;
 	font-size: 16px;
 }
-.number {
+
+.fa-magnifying-glass {
+	color: var(--accentcolor-dark);
+	padding-right: 0.5rem;
+  }
+
+.my-day-marked {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	font-weight: 100;
+	font-weight: 400;
 	color: black;
+	background-color: #A3CEF1;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	padding-top: 2px;
 }
-.number2 {
+.completed-tasks {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	font-weight: 100;
+	font-weight: 400;
 	color: black;
+	background-color: #A3CEF1;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	padding-top: 2px;
 }
-.number3 {
+.all-tasks-marked {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	font-weight: 100;
+	font-weight: 400;
 	color: black;
+	background-color: #A3CEF1;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	padding-top: 2px;
+}
+.star-marked {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: black;
+	background-color: #A3CEF1;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	padding-top: 2px;
 }
 .clicked {
 	font-family: 'Open Sans', sans-serif;
@@ -197,19 +247,8 @@ h3 {
 	padding-left: 30px;
 	padding-top: 20px;
 }
-.search-input {
+/* .search-input {
 	width: 300px;
-}
-/* .tasks-mobile {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding-top: 20px;
-	padding-left: 30px;
-	padding-right: 20px;
-	transition: none;
-	justify-content: space-between;
-	width: 350px;
 } */
 
 
